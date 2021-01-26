@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-image {
+  /* The image used */
+  background-image: url("/static/images/boston_image.jpeg");
+
+  /* Add the blur effect */
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Position text in the middle of the page/image */
+.bg-text {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
+</style>
+<body>
+<div class="bg-image"></div>
+
+<div class="bg-text">
+
+<div class="content">
+    <h1 style="text-align: center">Predict House Price in Boston</h1>
+
+    <div class="form">
+        <form action="/predict" method="POST">
+            <label for="zn">Residual Land Zoned for lots larger than 25,000sq.ft</label>
+            <input type="number" name="zn" id="zn" min="0" max="100" step="any" required>
+            <br><br>
+            <label for="indus">Non-Retain business acres per town</label>
+            <input type="number" name="indus" id="indus" min="0" max="28" step="any" required>
+            <br><br>
+            <label for="chas">Tract bounds Charles River</label>
+            <select name="chas" id="chas">
+                <option value="1">YES</option>
+                <option value="0">NO</option>
+            </select>
+            <br><br>
+            <label for="nox">Nitric Oxides Concentration</label>
+            <input type="number" name="nox" id="nox" min="0" max="100" step="any" required>
+            <br><br>
+            <label for="rm">Number of Rooms</label>
+            <input type="number" name="rm" id="rm" min="1" max="8" required>
+            <br><br>
+            <label for="rad">Accessibility to Radial Highways</label>
+            <input type="number" name="rad" id="rad" min="1" max="24" step="any" required>
+            <br><br>
+            <label for="tax">Property Tax Rate</label>
+            <input type="number" name="tax" id="tax" min="100" step="any" required>
+            <br><br>
+            <label for="ptratio">Pupil-Teacher Ratio</label>
+            <input type="number" name="ptratio" id="ptratio" min="12" max="24" step="any" required>
+            <br><br>
+            <label for="lstat">Percentage lower status of Population</label>
+            <input type="number" name="lstat" id="lstat" step="any" required>
+            <br><br>
+            <label for="crim">Crime Rate</label>
+            <input type="number" name="crim" id="crim" min="0" max="100" step="any" required>
+            <br><br>
+            <label for="dis">Weighted Distance</label>
+            <input type="float" name="dis" id="dis" step="any" required>
+            <br><br>
+            <label for="age">Owner Age</label>
+            <input type="number" name="age" id="age" min="1" max="100" required>
+            <br><br>
+            <label for="b">Proportion of people of Africa to America</label>
+            <input type="number" name="b" id="b" min="0" max="2" step="any" required>
+            <br><br>
+
+            <input type="submit" value="Predict">
+        </form>
+    </div>
+</div>
+</div>
+
+
+</body>
+</html>
+
+
